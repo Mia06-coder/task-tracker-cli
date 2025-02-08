@@ -14,7 +14,7 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/task-tracker-cli.git
+   git clone https://github.com/Mia06-coder/task-tracker-cli.git
    cd task-tracker-cli
    ```
 2. **Run the script**
