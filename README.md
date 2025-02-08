@@ -26,16 +26,34 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
 
 - **Add a new task**
 
-  ````sh
+  ```sh
   task-cli> add "Your Task Description"
+  ```
 
   Example:
 
   ```sh
   task-cli> add "Complete the project report"
-  ````
+  ```
 
-- **View tasks** (Feature in progress 🚧)
+- **View tasks**
+
+  ```sh
+  task-cli> list
+  ```
+
+  Output:
+
+  ```sh
+  📋 Your Tasks
+   ===========================================================================
+   ID   Description                     Status           Created At
+   ---------------------------------------------------------------------------
+   1    Task Description                status           d-MMM-YYYY  HH:MM:SS
+   2    Task Description                status           d-MMM-YYYY  HH:MM:SS
+   ===========================================================================
+  ```
+
 - **Update task status** (Feature in progress 🚧)
 
 ## 🛠️ Technologies Used
