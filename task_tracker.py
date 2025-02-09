@@ -59,13 +59,7 @@ class TaskTracker():
         
         print(f"Task added successfully (ID:{new_task_id})")
 
-    def listTasks(self):
-        task_list = self.readJson()
-
-        if not task_list:
-            print("No tasks available.")
-            return
-        
+    def displayTasks(self, task_list):
         print("\n📋 Your Tasks\n" + "=" * 98)
         print(f"{'ID':<5}{'Description':<30}  {'Status':<15}  {'Created At':<21}  {'Updated At'}")
         print("-" * 98)
@@ -80,6 +74,32 @@ class TaskTracker():
             print(f"{id:<5}{desc:<30}  {status:<15}  {created:<21}  {updated}")
         
         print("=" * 98)
+
+    def listTasks(self):
+        task_list = self.readJson()
+
+        if not task_list:
+            print("No tasks available.")
+            return
+        
+        self.displayTasks(task_list)
+
+    def listByStatus(self, match):
+        task_status = match.group(1).strip().lower()
+        task_list = self.readJson()
+
+        if not task_list:
+            print("No tasks available.")
+            return
+        
+        filtered_tasks = [task for task in task_list 
+                          if task["status"].lower() == task_status]
+        
+        if not filtered_tasks:
+            print(f"No tasks found with status: '{task_status}'")
+            return
+        
+        self.displayTasks(filtered_tasks)
 
     def markStatus(self, match, status):     
         task_id = match.group(1).strip()
@@ -110,6 +130,8 @@ class TaskTracker():
         print("\n📌 Available Commands:\n"
               '  - add "task description"  → Add a new task\n'
               "  - list                    → List all tasks\n"
+              "  - list <status>           → List tasks by status (done, todo, in-progress)\n"
+              "  - mark-<status> <task_id> → Mark task as done or in-progress\n"
               "  - help                    → Show available commands\n"
               "  - exit                    → Exit the task tracker\n")
 
@@ -128,12 +150,17 @@ while True:
     mark_done_pattern = r'^mark-done\s+(\d+)$'
     mark_done_match = re.match(mark_done_pattern, command, re.IGNORECASE)
 
+    list_by_status_pattern = r'^list\s+(done|todo|in-progress)$'
+    list_by_status_match = re.match(list_by_status_pattern, command, re.IGNORECASE)
+
     if add_task_match:
         task_tracker.addTask(add_task_match)
     elif mark_in_progress_match:
         task_tracker.markStatus(mark_in_progress_match, task_tracker.status_list[1])
     elif mark_done_match:
         task_tracker.markStatus(mark_done_match, task_tracker.status_list[2])
+    elif list_by_status_match:
+        task_tracker.listByStatus(list_by_status_match)
     elif command.lower() == "list":
         task_tracker.listTasks()
     elif command.lower() == "help":
