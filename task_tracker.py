@@ -59,6 +59,31 @@ class TaskTracker():
         
         print(f"Task added successfully (ID:{new_task_id})")
 
+    def deleteTask(self, match):
+        task_id = match.group(1).strip()
+        task_list = self.readJson()
+
+        if not task_list:
+            print("No tasks available.")
+            return
+        
+        self.found = False
+        task_to_remove = None
+        
+        # Find the task to delete
+        for index, task in enumerate(task_list):
+            if task["id"] == int(task_id):
+                task_to_remove = task
+                self.found = True
+                break
+
+        if self.found:
+            task_list.remove(task_to_remove)
+            self.writeJson(task_list)
+            print(f"Task (ID:{task_id}) successfully deleted!")
+        else:
+            print(f"Task (ID:{task_id}) not found!")
+
     def displayTasks(self, task_list):
         print("\n📋 Your Tasks\n" + "=" * 98)
         print(f"{'ID':<5}{'Description':<30}  {'Status':<15}  {'Created At':<21}  {'Updated At'}")
@@ -153,6 +178,9 @@ while True:
     list_by_status_pattern = r'^list\s+(done|todo|in-progress)$'
     list_by_status_match = re.match(list_by_status_pattern, command, re.IGNORECASE)
 
+    delete_pattern = r'^delete\s+(\d+)$'
+    delete_match = re.match(delete_pattern, command, re.IGNORECASE)
+
     if add_task_match:
         task_tracker.addTask(add_task_match)
     elif mark_in_progress_match:
@@ -161,6 +189,8 @@ while True:
         task_tracker.markStatus(mark_done_match, task_tracker.status_list[2])
     elif list_by_status_match:
         task_tracker.listByStatus(list_by_status_match)
+    elif delete_match:
+        task_tracker.deleteTask(delete_match)
     elif command.lower() == "list":
         task_tracker.listTasks()
     elif command.lower() == "help":

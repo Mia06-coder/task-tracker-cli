@@ -17,7 +17,7 @@
         "description":"Go for a run",
         "status":"done",
         "createdAt":"7-FEB-2025  22:20:00",
-        "updatedAt":"9-FEB-2025  17:22:39"
+        "updatedAt":"9-FEB-2025  17:12:55"
     },
     {
         "id":4,
@@ -74,17 +74,5 @@
         "description":"Exercise",
         "status":"todo",
         "createdAt":"9-FEB-2025  16:18:39"
-    },
-    {
-        "id":13,
-        "description":"Preapare supper",
-        "status":"todo",
-        "createdAt":"9-FEB-2025  16:53:19"
-    },
-    {
-        "id":14,
-        "description":"Cleann the house",
-        "status":"todo",
-        "createdAt":"9-FEB-2025  17:33"
     }
 ]
