@@ -54,7 +54,25 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
    ===========================================================================
   ```
 
-- **Update task status** (Feature in progress 🚧)
+- **Update task status**
+
+  ```sh
+  task-cli> mark-in-progress 2
+  Task (ID:2) already 'in-progress'
+  task-cli> mark-done 3
+  Task (ID:3) successfully marked as 'done'
+  task-cli> mark-done 30
+  Task (ID:30) not found!
+  ```
+
+  ```sh
+  ==================================================================================================
+  ID   Description                     Status           Created At             Updated At
+  --------------------------------------------------------------------------------------------------
+  1    Complete the project report     todo             7-FEB-2025  22:13:28
+  2    Move to next stage in project   in-progress      7-FEB-2025  22:13:59   9-FEB-2025  16:46:59
+  3    Go for a run                    done             7-FEB-2025  22:20:00   9-FEB-2025  17:22:39
+  ```
 
 ## 🛠️ Technologies Used
 
