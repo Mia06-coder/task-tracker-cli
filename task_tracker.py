@@ -44,9 +44,9 @@ class TaskTracker():
         try:
             with open(self.json_file, "w") as file: 
                 json.dump(tasks, file, indent=4, separators=(",",":"))
-        except json.JSONDecodeError:  # Handle invalid JSON format
-            print("⚠️ Error: Corrupted JSON file. Starting fresh.")
-
+        except IOError as e:
+            print(f"⚠️ Error writing to file: {e}")
+            
     def addTask(self, match):
         """
         Adds a new task with a default status of "todo".
@@ -62,8 +62,8 @@ class TaskTracker():
             print("❌ Task already exists!")
             return
         
-        last_id = tasks[-1]["id"] if tasks else 0  # Get last ID
-        new_task_id = last_id + 1 # Assign new ID
+        new_task_id = max((task["id"] for task in tasks), default=0) + 1
+
 
         self.currentDateTime()
         
