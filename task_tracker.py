@@ -46,7 +46,7 @@ class TaskTracker():
                 json.dump(tasks, file, indent=4, separators=(",",":"))
         except IOError as e:
             print(f"⚠️ Error writing to file: {e}")
-            
+
     def addTask(self, match):
         """
         Adds a new task with a default status of "todo".
@@ -231,6 +231,7 @@ class TaskTracker():
               "  - list                                 → List all tasks\n"
               "  - list <status>                        → List tasks by status (done, todo, in-progress)\n"
               "  - mark-<status> <task_id>              → Mark task as done or in-progress\n"
+              "  - delete <task_id>	                    → Delete a task"
               "  - help                                 → Show available commands\n"
               "  - exit                                 → Exit the task tracker\n")
 

@@ -7,8 +7,9 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
 - ✅ Add new tasks via the CLI
 - 📌 Track tasks with statuses: `todo`, `in-progress`, `done`
 - 💾 Store tasks in JSON format for persistence
-- 🕒 Timestamp tasks when added
-- 🎯 Simple and lightweight
+- 🕒 Timestamps for task creation and updates
+- 📋 Filter tasks by statu
+- 🎯 Lightweight & Simple to use
 
 ## 📦 Installation
 
@@ -22,56 +23,90 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
    python task_tracker.py
    ```
 
-## Usage
+## 🎯 Usage
 
-- **Add a new task**
+### 📌 Available Commands
 
-  ```sh
-  task-cli> add "Your Task Description"
-  ```
+# Command Description
 
-  Example:
+add "task description" Add a new task
+update <task_id> "new description" Update an existing task
+list List all tasks
+list <status> List tasks by status (done, todo, in-progress)
+mark-done <task_id> Mark a task as done
+mark-in-progress <task_id> Mark a task as in-progress
+delete <task_id> Delete a task
+help Show available commands
+exit Exit the task tracker
+
+### 🔄 Task Management Examples
+
+- **📌 Add a new task**
 
   ```sh
   task-cli> add "Complete the project report"
   ```
 
-- **View tasks**
+- **✏️ Update a Task**
+
+  ```sh
+  task-cli> update 1 "Submit the final project report"
+  ```
+
+- **📋 List tasks**
 
   ```sh
   task-cli> list
   ```
 
-  Output:
+  Example Output:
 
   ```sh
   📋 Your Tasks
-   ===========================================================================
-   ID   Description                     Status           Created At
-   ---------------------------------------------------------------------------
-   1    Task Description                status           d-MMM-YYYY  HH:MM:SS
-   2    Task Description                status           d-MMM-YYYY  HH:MM:SS
-   ===========================================================================
-  ```
-
-- **Update task status**
-
-  ```sh
-  task-cli> mark-in-progress 2
-  Task (ID:2) already 'in-progress'
-  task-cli> mark-done 3
-  Task (ID:3) successfully marked as 'done'
-  task-cli> mark-done 30
-  Task (ID:30) not found!
-  ```
-
-  ```sh
   ==================================================================================================
   ID   Description                     Status           Created At             Updated At
   --------------------------------------------------------------------------------------------------
   1    Complete the project report     todo             7-FEB-2025  22:13:28
   2    Move to next stage in project   in-progress      7-FEB-2025  22:13:59   9-FEB-2025  16:46:59
   3    Go for a run                    done             7-FEB-2025  22:20:00   9-FEB-2025  17:22:39
+  ==================================================================================================
+  ```
+
+- **📌 List Tasks by Status**
+
+  ```sh
+  task-cli> list done
+  ```
+
+- **🔄 Update task status**
+
+  ```sh
+  task-cli> mark-in-progress 2
+  task-cli> mark-done 3
+  ```
+
+- **❌ Delete a task**
+
+  ```sh
+  task-cli> delete 1
+  ```
+
+  Example Output:
+
+  ```sh
+  Task (ID:1) successfully deleted!
+  ```
+
+- **🚪 Exit the CLI**
+
+  ```sh
+  task-cli> help
+  ```
+
+- **ℹ️ View Available Commands**
+
+  ```sh
+  task-cli> exit
   ```
 
 ## 🛠️ Technologies Used
@@ -81,6 +116,12 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
 
 ## 🏗️ Future Enhancements
 
-- 📝 List all tasks
-- 🔄 Update task status
-- ❌ Delete a task
+- 📌 Search & filter tasks
+- 📅 Set due dates & reminders
+- 🏷️ Tag tasks by category
+- 📊 Generate task reports
+
+## 🎨 Credits & Inspiration
+
+This project idea was inspired by [roadmap.sh](https://roadmap.sh/projects/task-tracker).  
+Check it out for more project ideas and learning resources!
