@@ -27,17 +27,18 @@ A simple **Command Line Interface (CLI) Task Tracker** that helps you **add, tra
 
 ### 📌 Available Commands
 
-# Command Description
-
-add "task description" Add a new task
-update <task_id> "new description" Update an existing task
-list List all tasks
-list <status> List tasks by status (done, todo, in-progress)
-mark-done <task_id> Mark a task as done
-mark-in-progress <task_id> Mark a task as in-progress
-delete <task_id> Delete a task
-help Show available commands
-exit Exit the task tracker
+```sh
+Command                               Description
+add "task description"                Add a new task
+update <task_id> "new description"    Update an existing task
+list                                  List all tasks
+list <status>                         List tasks by status (done, todo, in-progress)
+mark-done <task_id>                   Mark a task as done
+mark-in-progress <task_id>            Mark a task as in-progress
+delete <task_id>                      Delete a task
+help                                  Show available commands
+exit                                  Exit the task tracker
+```
 
 ### 🔄 Task Management Examples
 
