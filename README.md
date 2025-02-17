@@ -98,13 +98,13 @@ exit                                  Exit the task tracker
   Task (ID:1) successfully deleted!
   ```
 
-- **🚪 Exit the CLI**
+- **ℹ️ View Available Commands**
 
   ```sh
   task-cli> help
   ```
 
-- **ℹ️ View Available Commands**
+- **🚪 Exit the CLI**
 
   ```sh
   task-cli> exit
